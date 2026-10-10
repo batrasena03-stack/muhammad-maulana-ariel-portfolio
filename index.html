@@ -90,15 +90,14 @@
     .loader-track{height:2px;overflow:hidden;background:#ffffff29}
     .loader-track span{display:block;width:38%;height:100%;background:linear-gradient(90deg,#c2c2bc,#efe2bf);box-shadow:0 0 10px #eee2c577;animation:loaderTravel 1.15s ease-in-out infinite alternate}
     @keyframes loaderTravel{from{transform:translateX(-105%)}to{transform:translateX(275%)}}
-    .lobby-content{position:absolute;z-index:3;width:min(420px,calc(100% - 48px));padding:35px 30px 32px;text-align:center;background:linear-gradient(180deg,#171c20b8,#101418c7);border:1px solid #d9e0e329;box-shadow:0 18px 60px #0006;backdrop-filter:blur(7px);opacity:0;visibility:hidden;transform:translateY(16px) scale(.96);transition:opacity .65s ease,transform .65s cubic-bezier(.18,.72,.22,1),visibility .65s}
+    .lobby-content{position:absolute;z-index:3;width:min(520px,calc(100% - 48px));text-align:center;opacity:0;visibility:hidden;transform:translateY(16px) scale(.96);transition:opacity .65s ease,transform .65s cubic-bezier(.18,.72,.22,1),visibility .65s}
     .site-loader.is-lobby .loader-content{opacity:0;transform:scale(.93);transition:opacity .45s ease,transform .45s ease;pointer-events:none}
     .site-loader.is-lobby .lobby-content{opacity:1;visibility:visible;transform:none}
-    .lobby-mark{width:46px;height:46px;margin:0 auto 20px;border:1px solid #e7e0d480;border-radius:50%;display:grid;place-items:center;color:#f4efe4;font:700 18px 'Bricolage Grotesque',sans-serif;background:#161a1d66;box-shadow:0 2px 18px #0005}
-    .lobby-kicker{margin:0 0 12px;color:#bfc5c8;font:500 9px 'DM Sans',sans-serif;letter-spacing:.2em;text-transform:uppercase}
-    .lobby-title{margin:0;color:#f2eee7;font:600 clamp(24px,6vw,34px)/1.15 'DM Sans',sans-serif;letter-spacing:-.035em;text-shadow:0 3px 22px #0008}
-    .lobby-copy{margin:14px auto 23px;max-width:310px;color:#c1c4c5;font:12px/1.75 'DM Sans',sans-serif;text-shadow:0 2px 8px #0009}
-    .lobby-start{display:inline-flex;align-items:center;justify-content:center;gap:18px;min-width:148px;padding:13px 22px;border:1px solid #e2e5e4a6;border-radius:2px;background:#172027a8;color:#f2f0eb;font:600 10px 'DM Sans',sans-serif;letter-spacing:.17em;cursor:pointer;box-shadow:0 5px 18px #0006;transition:transform .2s,box-shadow .2s,background .2s,border-color .2s}
-    .lobby-start:hover,.lobby-start:focus-visible{transform:translateY(-2px);background:#303940d9;border-color:#edf0ef;box-shadow:0 8px 22px #0008;outline:none}
+    .lobby-kicker{margin:0 0 18px;color:#e1cfaa;font:500 10px 'DM Sans',sans-serif;letter-spacing:.22em;text-transform:uppercase}
+    .lobby-title{margin:0;color:#f3f0e9;font:700 clamp(42px,9vw,82px)/.96 'Bricolage Grotesque',sans-serif;letter-spacing:-.065em;text-shadow:0 3px 25px #0008}
+    .lobby-copy{margin:20px auto 30px;max-width:380px;color:#c5c6c5;font:13px/1.8 'DM Sans',sans-serif;text-shadow:0 2px 8px #0009}
+    .lobby-start{display:inline-flex;align-items:center;justify-content:center;gap:18px;min-width:154px;padding:14px 24px;border:1px solid #e1cfaa;border-radius:4px;background:#e1cfaa;color:#202326;font:700 11px 'DM Sans',sans-serif;letter-spacing:.16em;cursor:pointer;box-shadow:0 5px 18px #0006;transition:transform .2s,box-shadow .2s,background .2s}
+    .lobby-start:hover,.lobby-start:focus-visible{transform:translateY(-2px);background:#f0e4cb;box-shadow:0 8px 22px #0008;outline:none}
     .lobby-start span{font-size:15px;letter-spacing:0}
     @media(prefers-reduced-motion:reduce){.site-shell.zoom-in{animation:none;opacity:1;transform:none;filter:none}.site-loader,.loader-mark,.loader-track span,.storm-rain i,.storm-lightning,.lobby-content,.loader-content{animation:none!important;transition:none!important}.storm-rain{display:none}}
   </style>
@@ -109,7 +108,7 @@
     <div class="storm-rain" id="storm-rain" aria-hidden="true"></div>
     <svg class="storm-lightning" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true"><path d="M185 -20 165 58l33 21-61 79 29-7-53 89 31-16-33 78M862 -30l-30 77 26 26-68 78 35-8-65 97 30-15-24 77M506 65l-24 42 30 20-42 47 24-8-28 47"/><path class="bolt-branch" d="m166 61-37-13-10 29m40 82-43-11-19 27m663-113 36-20 14 27m-95 73-39-17-18 31m-369-69-39-10-15 26m13 147-29-15-12 23"/></svg>
     <div class="loader-content"><div class="loader-mark" aria-hidden="true">M</div><p class="loader-title">Muhammad Maulana Ariel</p><p class="loader-caption">MEMUAT PORTOFOLIO · MENYIAPKAN BADAI</p><div class="loader-track" aria-hidden="true"><span></span></div></div>
-    <div class="lobby-content" id="lobby-content" aria-hidden="true"><div class="lobby-mark" aria-hidden="true">M</div><p class="lobby-kicker">PORTOFOLIO PRIBADI</p><h2 class="lobby-title">Muhammad Maulana Ariel</h2><p class="lobby-copy">Kumpulan karya, proses kreatif, dan cerita di baliknya.</p><button class="lobby-start" id="lobby-start" type="button">MASUK <span>↗</span></button></div>
+    <div class="lobby-content" id="lobby-content" aria-hidden="true"><p class="lobby-kicker">LOBI UTAMA · SIAP DIMASUKI</p><h1 class="lobby-title">PORTOFOLIO</h1><p class="lobby-copy">Karya dan cerita Muhammad Maulana Ariel.<br>Tekan Start untuk masuk.</p><button class="lobby-start" id="lobby-start" type="button">START <span>↗</span></button></div>
   </div>
   <div class="site-shell" id="site-shell">
   <header class="topbar"><nav class="nav wrap" aria-label="Navigasi utama"><a class="wordmark" href="#home" aria-label="Muhammad Maulana Ariel, beranda"><img class="brand-avatar" src="assets/ariel-portrait.jpeg" alt=""> Muhammad Maulana Ariel<span style="color:var(--lime)">.</span></a><button class="menu-btn" aria-label="Buka menu" aria-expanded="false">☰</button><div class="navlinks"><a href="#work">Karya</a><a href="#about">Tentang</a><a href="#contact">Kontak</a><a class="nav-cta" href="https://discord.com/users/1207242448212992043" target="_blank" rel="noreferrer">Mari ngobrol ↗</a></div></nav></header>
