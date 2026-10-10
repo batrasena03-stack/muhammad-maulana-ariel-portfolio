@@ -59,9 +59,41 @@
     @media(max-width:900px) and (min-width:701px){.projects{grid-template-columns:repeat(2,minmax(0,1fr))}.projects>.project:nth-child(4){grid-column:1}}
     @media(max-width:700px){.projects{grid-template-columns:1fr}.projects>.project:nth-child(4){grid-column:auto}}
     @media(prefers-reduced-motion:reduce){.hero h1{animation:none;transform:none}}
+    /* Storm loading and cinematic entrance */
+    body.is-loading{overflow:hidden}
+    .site-shell{transform-origin:center top}
+    .site-shell.zoom-in{animation:siteZoomIn 1.05s cubic-bezier(.18,.72,.22,1) both}
+    @keyframes siteZoomIn{0%{opacity:0;transform:scale(1.075);filter:blur(8px)}100%{opacity:1;transform:scale(1);filter:blur(0)}}
+    .site-loader{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 48%,#151a2a 0,#090a10 62%);transition:opacity .75s ease,visibility .75s ease}
+    .site-loader.is-leaving{opacity:0;visibility:hidden;pointer-events:none}
+    .storm-grid{position:absolute;inset:0;opacity:.42;background-image:linear-gradient(#7383a51a 1px,transparent 1px),linear-gradient(90deg,#7383a51a 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse,#000 20%,transparent 82%)}
+    .storm-rain{position:absolute;inset:-22% -8%;overflow:hidden;transform:skewX(-13deg)}
+    .storm-rain i{position:absolute;top:-20%;left:var(--x);height:var(--length);width:1px;background:linear-gradient(transparent,#8ca5ddaa,transparent);opacity:0;animation:rainFall var(--duration) linear var(--delay) infinite}
+    @keyframes rainFall{0%{transform:translate3d(0,-15vh,0);opacity:0}12%{opacity:var(--opacity)}85%{opacity:var(--opacity)}100%{transform:translate3d(-7vw,125vh,0);opacity:0}}
+    .storm-lightning{position:absolute;inset:0;width:100%;height:100%;color:#b6faff;opacity:0;filter:drop-shadow(0 0 14px #54f5f2) drop-shadow(0 0 34px #a88aff);pointer-events:none}
+    .storm-lightning path{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
+    .site-loader.is-flashing .storm-lightning{animation:lightningFlash .72s ease-out}
+    .site-loader.is-flashing{background-color:#1b2031}
+    @keyframes lightningFlash{0%,100%{opacity:0}8%{opacity:.95}13%{opacity:.12}22%{opacity:.72}34%{opacity:0}}
+    .loader-content{position:relative;z-index:2;width:min(370px,calc(100% - 52px));text-align:center}
+    .loader-mark{width:56px;height:56px;margin:0 auto 24px;border:1px solid #54f5f2aa;border-radius:50%;display:grid;place-items:center;color:#54f5f2;font:700 22px 'Orbitron',sans-serif;box-shadow:0 0 25px #54f5f244,inset 0 0 20px #54f5f21c;animation:markPulse 1.7s ease-in-out infinite}
+    @keyframes markPulse{50%{box-shadow:0 0 40px #54f5f277,inset 0 0 28px #54f5f233;transform:scale(1.06)}}
+    .loader-title{margin:0;color:#eef4ff;font:600 12px 'DM Mono',monospace;letter-spacing:.24em;text-transform:uppercase}
+    .loader-caption{margin:11px 0 22px;color:#8893af;font:10px 'DM Mono',monospace;letter-spacing:.12em}
+    .loader-track{height:2px;overflow:hidden;background:#252a3b}
+    .loader-track span{display:block;width:38%;height:100%;background:linear-gradient(90deg,#54f5f2,#a88aff);box-shadow:0 0 15px #54f5f2;animation:loaderTravel 1.15s ease-in-out infinite alternate}
+    @keyframes loaderTravel{from{transform:translateX(-105%)}to{transform:translateX(275%)}}
+    @media(prefers-reduced-motion:reduce){.site-shell.zoom-in{animation:none;opacity:1;transform:none;filter:none}.site-loader,.loader-mark,.loader-track span,.storm-rain i,.storm-lightning{animation:none!important;transition:none}.storm-rain{display:none}}
   </style>
 </head>
-<body>
+<body class="is-loading">
+  <div class="site-loader" id="site-loader" role="status" aria-live="polite" aria-label="Memuat portofolio">
+    <div class="storm-grid" aria-hidden="true"></div>
+    <div class="storm-rain" id="storm-rain" aria-hidden="true"></div>
+    <svg class="storm-lightning" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true"><path d="M760 -20 610 210h96L515 475l62-211h-91L650 -20M220 260l-70 112h53l-91 159 35-126h-55l91-145"/></svg>
+    <div class="loader-content"><div class="loader-mark" aria-hidden="true">M</div><p class="loader-title">Muhammad Maulana Ariel</p><p class="loader-caption">MEMUAT PORTOFOLIO · MENYIAPKAN BADAI</p><div class="loader-track" aria-hidden="true"><span></span></div></div>
+  </div>
+  <div class="site-shell" id="site-shell">
   <header class="topbar"><nav class="nav wrap" aria-label="Navigasi utama"><a class="wordmark" href="#home" aria-label="Muhammad Maulana Ariel, beranda"><img class="brand-avatar" src="assets/ariel-portrait.jpeg" alt=""> Muhammad Maulana Ariel<span style="color:var(--lime)">.</span></a><button class="menu-btn" aria-label="Buka menu" aria-expanded="false">☰</button><div class="navlinks"><a href="#work">Karya</a><a href="#about">Tentang</a><a href="#contact">Kontak</a><a class="nav-cta" href="https://discord.com/users/1207242448212992043" target="_blank" rel="noreferrer">Mari ngobrol ↗</a></div></nav></header>
   <main>
     <div class="hero wrap" id="home"><div class="eyebrow">DIGITAL CREATIVE · 2026</div><h1>PORTOFOLIO</h1><div class="hero-bottom"><div><p class="hero-copy">Halo, aku <strong>Muhammad Maulana Ariel</strong> — desainer independen yang mengubah ide rumit menjadi pengalaman digital yang <strong>jernih, berkarakter, dan berguna.</strong></p><div class="hero-actions"><a class="button" href="#work">Lihat karya <span>↘</span></a><a class="text-link" href="#about">Kenali aku →</a></div></div><div class="availability"><span class="dot"></span> TERBUKA UNTUK PROYEK BARU · 2026</div></div><div class="metrics"><div class="metric"><div class="metric-num">01 — 05</div><div class="metric-label">Tahun berkarya</div></div><div class="metric"><div class="metric-num">12+</div><div class="metric-label">Proyek kolaborasi</div></div><div class="metric"><div class="metric-num">ID · GLOBAL</div><div class="metric-label">Berbasis di Indonesia</div></div></div></div>
@@ -76,8 +108,10 @@
     <section id="contact" class="contact"><div class="wrap contact-inner reveal"><div class="eyebrow">03 / Punya ide?</div><h2>Mari buat sesuatu<br><span>yang berarti.</span></h2><div class="contact-row"><div class="contact-sub">Ada proyek, kolaborasi, atau sekadar ingin menyapa?<br>Kotak masukku selalu terbuka.</div><a class="contact-email" href="mailto:muhammadmaulanaariel22@gmail.com">muhammadmaulanaariel22@gmail.com ↗</a></div></div></section>
   </main>
   <footer><div class="wrap footer-inner"><div>© 2026 MUHAMMAD MAULANA ARIEL · DIBUAT DENGAN NIAT BAIK</div><div class="socials"><a href="https://www.instagram.com/m.maulanaariel_?srtk=MXF0Zmk5dDlvc3l5aA==" target="_blank" rel="noreferrer">INSTAGRAM ↗</a><a href="https://discord.com/users/1207242448212992043" target="_blank" rel="noreferrer">DISCORD ↗</a><a href="https://www.behance.net/" target="_blank" rel="noreferrer">BEHANCE ↗</a><a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LINKEDIN ↗</a></div><a href="#home">KEMBALI KE ATAS ↑</a></div></footer>
+  </div>
   <script>
     const menuButton=document.querySelector('.menu-btn');const navLinks=document.querySelector('.navlinks');menuButton.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuButton.setAttribute('aria-expanded',open);menuButton.setAttribute('aria-label',open?'Tutup menu':'Buka menu');menuButton.textContent=open?'×':'☰'});navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navLinks.classList.remove('open');menuButton.setAttribute('aria-expanded','false');menuButton.textContent='☰'}));const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+    const loader=document.querySelector('#site-loader'),shell=document.querySelector('#site-shell'),rain=document.querySelector('#storm-rain'),motionReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches,loadStarted=performance.now();for(let i=0;i<52;i++){const drop=document.createElement('i');drop.style.setProperty('--x',`${Math.random()*100}%`);drop.style.setProperty('--length',`${35+Math.random()*85}px`);drop.style.setProperty('--duration',`${.48+Math.random()*.72}s`);drop.style.setProperty('--delay',`${-Math.random()*1.5}s`);drop.style.setProperty('--opacity',`${.18+Math.random()*.48}`);rain.appendChild(drop)}let flashTimer;const flashStorm=()=>{loader.classList.add('is-flashing');setTimeout(()=>loader.classList.remove('is-flashing'),760);flashTimer=setTimeout(flashStorm,1250+Math.random()*1450)};if(!motionReduced)flashTimer=setTimeout(flashStorm,420);const finishLoading=()=>{clearTimeout(flashTimer);if(motionReduced){loader.remove();document.body.classList.remove('is-loading');return}setTimeout(()=>{shell.classList.add('zoom-in');loader.classList.add('is-leaving');setTimeout(()=>{loader.remove();document.body.classList.remove('is-loading')},780)},Math.max(0,1850-(performance.now()-loadStarted)))};if(document.readyState==='complete')finishLoading();else window.addEventListener('load',finishLoading,{once:true});
   </script>
 </body>
 </html>
