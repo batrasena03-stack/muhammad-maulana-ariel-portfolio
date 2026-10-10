@@ -68,20 +68,20 @@
     .site-loader.is-leaving{opacity:0;visibility:hidden;pointer-events:none}
     .site-loader:before{content:"";position:absolute;inset:0;z-index:1;background:#e8edf1;opacity:0;pointer-events:none}
     .site-loader.is-flashing:before{animation:screenFlash .34s ease-out}
-    @keyframes screenFlash{0%,100%{opacity:0}7%{opacity:.13}13%{opacity:.015}23%{opacity:.08}35%{opacity:0}}
+    @keyframes screenFlash{0%,100%{opacity:0}7%{opacity:.06}13%{opacity:0}23%{opacity:.035}35%{opacity:0}}
     .storm-sky{position:absolute;inset:-12%;overflow:hidden;background:linear-gradient(180deg,#11171d 0%,#252d35 38%,#171d23 70%,#0b0e12 100%);}
     .storm-sky:before,.storm-sky:after{content:"";position:absolute;inset:-22%;filter:blur(38px);background:radial-gradient(ellipse at 16% 29%,#aab3bb30 0 7%,transparent 25%),radial-gradient(ellipse at 37% 45%,#6f7b8538 0 11%,transparent 29%),radial-gradient(ellipse at 63% 27%,#aeb7bf32 0 9%,transparent 26%),radial-gradient(ellipse at 84% 43%,#77838c35 0 12%,transparent 30%),radial-gradient(ellipse at 57% 68%,#48515a3d 0 10%,transparent 29%);animation:cloudDrift 17s ease-in-out infinite alternate}
     .storm-sky:after{opacity:.8;transform:scale(1.24) translateX(7%);filter:blur(54px);background:radial-gradient(ellipse at 25% 57%,#87929b26 0 12%,transparent 30%),radial-gradient(ellipse at 72% 44%,#bac2c92b 0 8%,transparent 25%),radial-gradient(ellipse at 48% 20%,#57616a32 0 13%,transparent 34%);animation-duration:23s;animation-direction:alternate-reverse}
     @keyframes cloudDrift{from{translate:-2% -1%}to{translate:3% 2%}}
-    .site-loader.is-flashing .storm-sky{filter:brightness(1.5);transition:filter .04s ease}
+    .site-loader.is-flashing .storm-sky{filter:brightness(1.18);transition:filter .04s ease}
     .storm-rain{position:absolute;inset:-22% -8%;z-index:1;overflow:hidden;transform:skewX(-13deg)}
     .storm-rain i{position:absolute;top:-20%;left:var(--x);height:var(--length);width:1px;background:linear-gradient(transparent,#d4dbe0b8,transparent);opacity:0;animation:rainFall var(--duration) linear var(--delay) infinite}
     @keyframes rainFall{0%{transform:translate3d(0,-15vh,0);opacity:0}12%{opacity:var(--opacity)}85%{opacity:var(--opacity)}100%{transform:translate3d(-7vw,125vh,0);opacity:0}}
-    .storm-lightning{position:absolute;inset:0;width:100%;height:100%;z-index:2;color:#f4f6f7;opacity:0;filter:drop-shadow(0 0 3px #fff) drop-shadow(0 0 10px #dce5ed) drop-shadow(0 0 22px #b7c5d0);pointer-events:none}
-    .storm-lightning path{fill:none;stroke:currentColor;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;vector-effect:non-scaling-stroke}
-    .storm-lightning .bolt-branch{stroke-width:2;opacity:.9}
+    .storm-lightning{position:absolute;inset:0;width:100%;height:100%;z-index:2;color:#edf1f3;opacity:0;filter:drop-shadow(0 0 2px #edf1f3) drop-shadow(0 0 7px #cbd5dc);pointer-events:none}
+    .storm-lightning path{fill:none;stroke:currentColor;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:bevel;vector-effect:non-scaling-stroke}
+    .storm-lightning .bolt-branch{stroke-width:1.5;opacity:.75}
     .site-loader.is-flashing .storm-lightning{animation:lightningFlash .34s linear}
-    @keyframes lightningFlash{0%,100%{opacity:0}5%{opacity:.95}11%{opacity:.06}20%{opacity:.82}28%{opacity:0}}
+    @keyframes lightningFlash{0%,100%{opacity:0}5%{opacity:.72}11%{opacity:.05}20%{opacity:.56}28%{opacity:0}}
     .loader-content{position:relative;z-index:2;width:min(370px,calc(100% - 52px));text-align:center}
     .loader-mark{width:54px;height:54px;margin:0 auto 23px;border:1px solid #e7e0d4a8;border-radius:50%;display:grid;place-items:center;color:#f4efe4;font:700 21px 'Bricolage Grotesque',sans-serif;background:#161a1d66;box-shadow:0 2px 18px #0005;animation:markPulse 2.4s ease-in-out infinite}
     @keyframes markPulse{50%{box-shadow:0 3px 24px #0008;transform:scale(1.025)}}
@@ -106,7 +106,7 @@
   <div class="site-loader" id="site-loader" role="status" aria-live="polite" aria-label="Memuat portofolio">
     <div class="storm-sky" aria-hidden="true"></div>
     <div class="storm-rain" id="storm-rain" aria-hidden="true"></div>
-    <svg class="storm-lightning" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true"><path d="M760 -20 610 210h96L515 475l62-211h-91L650 -20M220 260l-70 112h53l-91 159 35-126h-55l91-145M875 210l-82 126h51l-92 150 34-119h-51l83-128M455 -20 405 125h43l-88 153 29-111h-40l54-187"/><path class="bolt-branch" d="m622 192-56-29 19-48m-27 246-61 22-18 50m-325-72-50-20 14-38m642 65 50 22-13 37m-369-315 43 21 11-39m-39 135-50-19-23 35m255 32 49-16 9-40"/></svg>
+    <svg class="storm-lightning" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true"><path d="M185 -20 165 58l33 21-61 79 29-7-53 89 31-16-33 78M862 -30l-30 77 26 26-68 78 35-8-65 97 30-15-24 77M506 65l-24 42 30 20-42 47 24-8-28 47"/><path class="bolt-branch" d="m166 61-37-13-10 29m40 82-43-11-19 27m663-113 36-20 14 27m-95 73-39-17-18 31m-369-69-39-10-15 26m13 147-29-15-12 23"/></svg>
     <div class="loader-content"><div class="loader-mark" aria-hidden="true">M</div><p class="loader-title">Muhammad Maulana Ariel</p><p class="loader-caption">MEMUAT PORTOFOLIO · MENYIAPKAN BADAI</p><div class="loader-track" aria-hidden="true"><span></span></div></div>
     <div class="lobby-content" id="lobby-content" aria-hidden="true"><p class="lobby-kicker">LOBI UTAMA · SIAP DIMASUKI</p><h1 class="lobby-title">PORTOFOLIO</h1><p class="lobby-copy">Karya dan cerita Muhammad Maulana Ariel.<br>Tekan Start untuk masuk.</p><button class="lobby-start" id="lobby-start" type="button">START <span>↗</span></button></div>
   </div>
