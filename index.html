@@ -64,44 +64,47 @@
     .site-shell{transform-origin:center top}
     .site-shell.zoom-in{animation:siteZoomIn 1.05s cubic-bezier(.18,.72,.22,1) both}
     @keyframes siteZoomIn{0%{opacity:0;transform:scale(1.075);filter:blur(8px)}100%{opacity:1;transform:scale(1);filter:blur(0)}}
-    .site-loader{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 48%,#151a2a 0,#090a10 62%);transition:opacity .75s ease,visibility .75s ease}
+    .site-loader{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;overflow:hidden;background:linear-gradient(180deg,#11161c 0%,#242b32 49%,#101317 100%);transition:opacity .75s ease,visibility .75s ease}
     .site-loader.is-leaving{opacity:0;visibility:hidden;pointer-events:none}
-    .site-loader:before{content:"";position:absolute;inset:0;z-index:1;background:#ddfbff;opacity:0;pointer-events:none}
-    .site-loader.is-flashing:before{animation:screenFlash .72s ease-out}
-    @keyframes screenFlash{0%,100%{opacity:0}8%{opacity:.28}13%{opacity:.04}22%{opacity:.17}36%{opacity:0}}
-    .storm-grid{position:absolute;inset:0;opacity:.42;background-image:linear-gradient(#7383a51a 1px,transparent 1px),linear-gradient(90deg,#7383a51a 1px,transparent 1px);background-size:44px 44px;mask-image:radial-gradient(ellipse,#000 20%,transparent 82%)}
-    .storm-rain{position:absolute;inset:-22% -8%;overflow:hidden;transform:skewX(-13deg)}
-    .storm-rain i{position:absolute;top:-20%;left:var(--x);height:var(--length);width:1px;background:linear-gradient(transparent,#8ca5ddaa,transparent);opacity:0;animation:rainFall var(--duration) linear var(--delay) infinite}
+    .site-loader:before{content:"";position:absolute;inset:0;z-index:1;background:#fff7e8;opacity:0;pointer-events:none}
+    .site-loader.is-flashing:before{animation:screenFlash .56s ease-out}
+    @keyframes screenFlash{0%,100%{opacity:0}8%{opacity:.42}15%{opacity:.04}27%{opacity:.25}42%{opacity:.03}52%{opacity:.16}70%{opacity:0}}
+    .storm-sky{position:absolute;inset:-12%;overflow:hidden;background:radial-gradient(ellipse at 23% 27%,#9ba8b31c 0,transparent 32%),radial-gradient(ellipse at 76% 35%,#b3bac21b 0,transparent 35%),radial-gradient(ellipse at 45% 76%,#07090b 0,transparent 46%);}
+    .storm-sky:before,.storm-sky:after{content:"";position:absolute;inset:-20%;filter:blur(34px);background:radial-gradient(ellipse at 32% 42%,#bdc3c51f 0 10%,transparent 28%),radial-gradient(ellipse at 63% 28%,#a9b3bb20 0 13%,transparent 32%),radial-gradient(ellipse at 78% 65%,#bbc0c317 0 12%,transparent 30%);animation:cloudDrift 17s ease-in-out infinite alternate}
+    .storm-sky:after{opacity:.75;transform:scale(1.18) translateX(7%);animation-duration:23s;animation-direction:alternate-reverse}
+    @keyframes cloudDrift{from{translate:-2% -1%}to{translate:3% 2%}}
+    .site-loader.is-flashing .storm-sky{filter:brightness(1.7);transition:filter .1s ease}
+    .storm-rain{position:absolute;inset:-22% -8%;z-index:1;overflow:hidden;transform:skewX(-13deg)}
+    .storm-rain i{position:absolute;top:-20%;left:var(--x);height:var(--length);width:1px;background:linear-gradient(transparent,#d4dbe0b8,transparent);opacity:0;animation:rainFall var(--duration) linear var(--delay) infinite}
     @keyframes rainFall{0%{transform:translate3d(0,-15vh,0);opacity:0}12%{opacity:var(--opacity)}85%{opacity:var(--opacity)}100%{transform:translate3d(-7vw,125vh,0);opacity:0}}
-    .storm-lightning{position:absolute;inset:0;width:100%;height:100%;z-index:1;color:#d7ffff;opacity:0;filter:drop-shadow(0 0 10px #54f5f2) drop-shadow(0 0 26px #54f5f2) drop-shadow(0 0 48px #a88aff);pointer-events:none}
-    .storm-lightning path{fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:round;stroke-linejoin:round;vector-effect:non-scaling-stroke}
-    .storm-lightning .bolt-branch{stroke-width:2.5;opacity:.85}
-    .site-loader.is-flashing .storm-lightning{animation:lightningFlash .72s ease-out}
-    .site-loader.is-flashing{background-color:#252c45}
-    @keyframes lightningFlash{0%,100%{opacity:0}6%{opacity:1}11%{opacity:.1}19%{opacity:.92}27%{opacity:.25}38%{opacity:.8}52%{opacity:0}}
+    .storm-lightning{position:absolute;inset:0;width:100%;height:100%;z-index:2;color:#fff9e9;opacity:0;filter:drop-shadow(0 0 5px #fff) drop-shadow(0 0 17px #fff1cf) drop-shadow(0 0 42px #d6d9df);pointer-events:none}
+    .storm-lightning path{fill:none;stroke:currentColor;stroke-width:5;stroke-linecap:square;stroke-linejoin:miter;vector-effect:non-scaling-stroke}
+    .storm-lightning .bolt-branch{stroke-width:2.5;opacity:.95}
+    .site-loader.is-flashing .storm-lightning{animation:lightningFlash .56s steps(1,end)}
+    @keyframes lightningFlash{0%,100%{opacity:0}7%{opacity:1}14%{opacity:.1}24%{opacity:.92}34%{opacity:.18}47%{opacity:.86}62%{opacity:0}}
     .loader-content{position:relative;z-index:2;width:min(370px,calc(100% - 52px));text-align:center}
-    .loader-mark{width:56px;height:56px;margin:0 auto 24px;border:1px solid #54f5f2aa;border-radius:50%;display:grid;place-items:center;color:#54f5f2;font:700 22px 'Orbitron',sans-serif;box-shadow:0 0 25px #54f5f244,inset 0 0 20px #54f5f21c;animation:markPulse 1.7s ease-in-out infinite}
-    @keyframes markPulse{50%{box-shadow:0 0 40px #54f5f277,inset 0 0 28px #54f5f233;transform:scale(1.06)}}
-    .loader-title{margin:0;color:#eef4ff;font:600 12px 'DM Mono',monospace;letter-spacing:.24em;text-transform:uppercase}
-    .loader-caption{margin:11px 0 22px;color:#8893af;font:10px 'DM Mono',monospace;letter-spacing:.12em}
-    .loader-track{height:2px;overflow:hidden;background:#252a3b}
-    .loader-track span{display:block;width:38%;height:100%;background:linear-gradient(90deg,#54f5f2,#a88aff);box-shadow:0 0 15px #54f5f2;animation:loaderTravel 1.15s ease-in-out infinite alternate}
+    .loader-mark{width:54px;height:54px;margin:0 auto 23px;border:1px solid #e7e0d4a8;border-radius:50%;display:grid;place-items:center;color:#f4efe4;font:700 21px 'Bricolage Grotesque',sans-serif;background:#161a1d66;box-shadow:0 2px 18px #0005;animation:markPulse 2.4s ease-in-out infinite}
+    @keyframes markPulse{50%{box-shadow:0 3px 24px #0008;transform:scale(1.025)}}
+    .loader-title{margin:0;color:#f2eee7;font:600 12px 'DM Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase}
+    .loader-caption{margin:11px 0 22px;color:#b3b4b3;font:10px 'DM Sans',sans-serif;letter-spacing:.12em}
+    .loader-track{height:2px;overflow:hidden;background:#ffffff29}
+    .loader-track span{display:block;width:38%;height:100%;background:linear-gradient(90deg,#c2c2bc,#efe2bf);box-shadow:0 0 10px #eee2c577;animation:loaderTravel 1.15s ease-in-out infinite alternate}
     @keyframes loaderTravel{from{transform:translateX(-105%)}to{transform:translateX(275%)}}
     .lobby-content{position:absolute;z-index:3;width:min(520px,calc(100% - 48px));text-align:center;opacity:0;visibility:hidden;transform:translateY(16px) scale(.96);transition:opacity .65s ease,transform .65s cubic-bezier(.18,.72,.22,1),visibility .65s}
     .site-loader.is-lobby .loader-content{opacity:0;transform:scale(.93);transition:opacity .45s ease,transform .45s ease;pointer-events:none}
     .site-loader.is-lobby .lobby-content{opacity:1;visibility:visible;transform:none}
-    .lobby-kicker{margin:0 0 18px;color:#54f5f2;font:10px 'DM Mono',monospace;letter-spacing:.28em;text-transform:uppercase}
-    .lobby-title{margin:0;color:#eef4ff;font:800 clamp(40px,9vw,76px)/.98 'Orbitron',sans-serif;letter-spacing:.015em;text-shadow:0 0 30px #54f5f244}
-    .lobby-copy{margin:20px auto 30px;max-width:380px;color:#9ba6c0;font:12px/1.8 'DM Sans',sans-serif}
-    .lobby-start{display:inline-flex;align-items:center;justify-content:center;gap:18px;min-width:160px;padding:15px 24px;border:1px solid #54f5f2;border-radius:999px;background:#54f5f2;color:#080a10;font:700 11px 'DM Mono',monospace;letter-spacing:.18em;cursor:pointer;box-shadow:0 0 25px #54f5f244;transition:transform .2s,box-shadow .2s,background .2s}
-    .lobby-start:hover,.lobby-start:focus-visible{transform:translateY(-3px) scale(1.03);background:#a7ffff;box-shadow:0 0 38px #54f5f277;outline:none}
-    .lobby-start span{font-size:16px;letter-spacing:0}
+    .lobby-kicker{margin:0 0 18px;color:#e1cfaa;font:500 10px 'DM Sans',sans-serif;letter-spacing:.22em;text-transform:uppercase}
+    .lobby-title{margin:0;color:#f3f0e9;font:700 clamp(42px,9vw,82px)/.96 'Bricolage Grotesque',sans-serif;letter-spacing:-.065em;text-shadow:0 3px 25px #0008}
+    .lobby-copy{margin:20px auto 30px;max-width:380px;color:#c5c6c5;font:13px/1.8 'DM Sans',sans-serif;text-shadow:0 2px 8px #0009}
+    .lobby-start{display:inline-flex;align-items:center;justify-content:center;gap:18px;min-width:154px;padding:14px 24px;border:1px solid #e1cfaa;border-radius:4px;background:#e1cfaa;color:#202326;font:700 11px 'DM Sans',sans-serif;letter-spacing:.16em;cursor:pointer;box-shadow:0 5px 18px #0006;transition:transform .2s,box-shadow .2s,background .2s}
+    .lobby-start:hover,.lobby-start:focus-visible{transform:translateY(-2px);background:#f0e4cb;box-shadow:0 8px 22px #0008;outline:none}
+    .lobby-start span{font-size:15px;letter-spacing:0}
     @media(prefers-reduced-motion:reduce){.site-shell.zoom-in{animation:none;opacity:1;transform:none;filter:none}.site-loader,.loader-mark,.loader-track span,.storm-rain i,.storm-lightning,.lobby-content,.loader-content{animation:none!important;transition:none!important}.storm-rain{display:none}}
   </style>
 </head>
 <body class="is-loading">
   <div class="site-loader" id="site-loader" role="status" aria-live="polite" aria-label="Memuat portofolio">
-    <div class="storm-grid" aria-hidden="true"></div>
+    <div class="storm-sky" aria-hidden="true"></div>
     <div class="storm-rain" id="storm-rain" aria-hidden="true"></div>
     <svg class="storm-lightning" viewBox="0 0 1000 700" preserveAspectRatio="none" aria-hidden="true"><path d="M760 -20 610 210h96L515 475l62-211h-91L650 -20M220 260l-70 112h53l-91 159 35-126h-55l91-145M875 210l-82 126h51l-92 150 34-119h-51l83-128"/><path class="bolt-branch" d="m622 192-56-29 19-48m-27 246-61 22-18 50m-325-72-50-20 14-38m642 65 50 22-13 37"/></svg>
     <div class="loader-content"><div class="loader-mark" aria-hidden="true">M</div><p class="loader-title">Muhammad Maulana Ariel</p><p class="loader-caption">MEMUAT PORTOFOLIO · MENYIAPKAN BADAI</p><div class="loader-track" aria-hidden="true"><span></span></div></div>
@@ -125,7 +128,7 @@
   </div>
   <script>
     const menuButton=document.querySelector('.menu-btn');const navLinks=document.querySelector('.navlinks');menuButton.addEventListener('click',()=>{const open=navLinks.classList.toggle('open');menuButton.setAttribute('aria-expanded',open);menuButton.setAttribute('aria-label',open?'Tutup menu':'Buka menu');menuButton.textContent=open?'×':'☰'});navLinks.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{navLinks.classList.remove('open');menuButton.setAttribute('aria-expanded','false');menuButton.textContent='☰'}));const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-    const loader=document.querySelector('#site-loader'),shell=document.querySelector('#site-shell'),rain=document.querySelector('#storm-rain'),lobby=document.querySelector('#lobby-content'),loaderContent=document.querySelector('.loader-content'),startButton=document.querySelector('#lobby-start'),motionReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches,loadStarted=performance.now();for(let i=0;i<68;i++){const drop=document.createElement('i');drop.style.setProperty('--x',`${Math.random()*100}%`);drop.style.setProperty('--length',`${35+Math.random()*100}px`);drop.style.setProperty('--duration',`${.42+Math.random()*.68}s`);drop.style.setProperty('--delay',`${-Math.random()*1.5}s`);drop.style.setProperty('--opacity',`${.22+Math.random()*.58}`);rain.appendChild(drop)}let flashTimer;const flashStorm=()=>{loader.classList.add('is-flashing');setTimeout(()=>loader.classList.remove('is-flashing'),760);flashTimer=setTimeout(flashStorm,850+Math.random()*1150)};if(!motionReduced)flashTimer=setTimeout(flashStorm,320);const showLobby=()=>{loader.classList.add('is-lobby');loader.setAttribute('role','dialog');loader.setAttribute('aria-label','Lobi portofolio');loaderContent.setAttribute('aria-hidden','true');lobby.setAttribute('aria-hidden','false');startButton.focus()};const enterPortfolio=()=>{clearTimeout(flashTimer);shell.classList.add('zoom-in');loader.classList.add('is-leaving');setTimeout(()=>{loader.remove();document.body.classList.remove('is-loading')},motionReduced?0:780)};startButton.addEventListener('click',enterPortfolio);const finishLoading=()=>{setTimeout(showLobby,Math.max(0,1850-(performance.now()-loadStarted)))};if(document.readyState==='complete')finishLoading();else window.addEventListener('load',finishLoading,{once:true});
+    const loader=document.querySelector('#site-loader'),shell=document.querySelector('#site-shell'),rain=document.querySelector('#storm-rain'),lobby=document.querySelector('#lobby-content'),loaderContent=document.querySelector('.loader-content'),startButton=document.querySelector('#lobby-start'),motionReduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches,loadStarted=performance.now();for(let i=0;i<68;i++){const drop=document.createElement('i');drop.style.setProperty('--x',`${Math.random()*100}%`);drop.style.setProperty('--length',`${35+Math.random()*100}px`);drop.style.setProperty('--duration',`${.42+Math.random()*.68}s`);drop.style.setProperty('--delay',`${-Math.random()*1.5}s`);drop.style.setProperty('--opacity',`${.22+Math.random()*.58}`);rain.appendChild(drop)}let flashTimer;const flashStorm=()=>{loader.classList.add('is-flashing');setTimeout(()=>{loader.classList.remove('is-flashing');flashTimer=setTimeout(flashStorm,240+Math.random()*480)},560)};if(!motionReduced)flashTimer=setTimeout(flashStorm,240);const showLobby=()=>{loader.classList.add('is-lobby');loader.setAttribute('role','dialog');loader.setAttribute('aria-label','Lobi portofolio');loaderContent.setAttribute('aria-hidden','true');lobby.setAttribute('aria-hidden','false');startButton.focus()};const enterPortfolio=()=>{clearTimeout(flashTimer);shell.classList.add('zoom-in');loader.classList.add('is-leaving');setTimeout(()=>{loader.remove();document.body.classList.remove('is-loading')},motionReduced?0:780)};startButton.addEventListener('click',enterPortfolio);const finishLoading=()=>{setTimeout(showLobby,Math.max(0,1850-(performance.now()-loadStarted)))};if(document.readyState==='complete')finishLoading();else window.addEventListener('load',finishLoading,{once:true});
   </script>
 </body>
 </html>
