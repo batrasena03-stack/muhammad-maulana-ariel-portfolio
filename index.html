@@ -80,7 +80,7 @@
     .storm-lightning{position:absolute;inset:0;width:100%;height:100%;z-index:2;color:#f4f6f7;opacity:0;filter:drop-shadow(0 0 3px #fff) drop-shadow(0 0 10px #dce5ed) drop-shadow(0 0 22px #b7c5d0);pointer-events:none}
     .storm-lightning path{fill:none;stroke:currentColor;stroke-width:4;stroke-linecap:round;stroke-linejoin:bevel;vector-effect:non-scaling-stroke}
     .storm-lightning .bolt-branch{stroke-width:2;opacity:.9}
-    .site-loader.is-flashing .storm-lightning{animation:lightningFlash .34s steps(1,end)}
+    .site-loader.is-flashing .storm-lightning{animation:lightningFlash .34s linear}
     @keyframes lightningFlash{0%,100%{opacity:0}5%{opacity:.95}11%{opacity:.06}20%{opacity:.82}28%{opacity:0}}
     .loader-content{position:relative;z-index:2;width:min(370px,calc(100% - 52px));text-align:center}
     .loader-mark{width:54px;height:54px;margin:0 auto 23px;border:1px solid #e7e0d4a8;border-radius:50%;display:grid;place-items:center;color:#f4efe4;font:700 21px 'Bricolage Grotesque',sans-serif;background:#161a1d66;box-shadow:0 2px 18px #0005;animation:markPulse 2.4s ease-in-out infinite}
